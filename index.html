@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmashZone | Premium Badminton Store</title>
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:"Poppins", sans-serif;
+        }
+
+        html{
+            scroll-behavior:smooth;
+        }
+
+        body{
+            background:#f4f7fb;
+            color:#222;
+        }
+
+        /* NAVBAR */
+
+        header{
+            position:sticky;
+            top:0;
+            z-index:1000;
+
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+
+            padding:18px 7%;
+            background:rgba(15,15,15,0.95);
+
+            backdrop-filter:blur(10px);
+        }
+
+        .logo{
+            font-size:30px;
+            font-weight:700;
+            color:#00e676;
+        }
+
+        nav{
+            display:flex;
+            align-items:center;
+            gap:22px;
+        }
+
+        nav a{
+            color:white;
+            text-decoration:none;
+            transition:0.3s;
+        }
+
+        nav a:hover{
+            color:#00e676;
+        }
+
+        .nav-btn{
+            background:#00c853;
+            padding:10px 16px;
+            border:none;
+            border-radius:10px;
+            color:white;
+            cursor:pointer;
+        }
+
+        /* DROPDOWN */
+
+        .dropdown{
+            position:relative;
+        }
+
+        .dropbtn{
+            background:transparent;
+            border:none;
+            color:white;
+            cursor:pointer;
+            font-size:15px;
+        }
+
+        .dropdown-content{
+
+            position:absolute;
+            top:35px;
+
+            background:white;
+            min-width:180px;
+
+            border-radius:12px;
+
+            overflow:hidden;
+
+            opacity:0;
+            visibility:hidden;
+
+            transform:translateY(10px);
+
+            transition:0.3s;
+
+            box-shadow:0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .dropdown-content a{
+
+            display:block;
+            padding:14px 18px;
+
+            color:#222;
+            text-decoration:none;
+        }
+
+        .dropdown-content a:hover{
+            background:#f3f3f3;
+        }
+
+        .dropdown:hover .dropdown-content{
+
+            opacity:1;
+            visibility:visible;
+
+            transform:translateY(0);
+        }
+
+        /* SEARCH */
+
+        .search-box{
+            position:relative;
+        }
+
+        .search-box input{
+            padding:10px 40px 10px 14px;
+            border-radius:30px;
+            border:none;
+            outline:none;
+            width:220px;
+        }
+
+        .search-box i{
+            position:absolute;
+            right:15px;
+            top:11px;
+            color:#555;
+        }
+
+        /* CART */
+
+        .cart-icon{
+            position:relative;
+            color:white;
+            font-size:22px;
+            cursor:pointer;
+        }
+
+        .cart-count{
+            position:absolute;
+            top:-10px;
+            right:-12px;
+
+            width:20px;
+            height:20px;
+
+            background:red;
+            border-radius:50%;
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            font-size:12px;
+        }
+
+        /* HERO */
+
+        .hero{
+
+            min-height:90vh;
+
+            background:
+            linear-gradient(rgba(0,0,0,0.55),
+            rgba(0,0,0,0.55)),
+            url("images/lee-zii-jia-smash.jpg");
+
+            background-size:cover;
+            background-position:center;
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+
+            text-align:center;
+
+            animation:zoomHero 12s infinite alternate ease-in-out;
+        }
+
+        @keyframes zoomHero{
+
+            from{
+                background-size:100%;
+            }
+
+            to{
+                background-size:110%;
+            }
+
+        }
+
+        .hero-content{
+            color:white;
+            padding:20px;
+        }
+
+        .hero h1{
+            font-size:70px;
+            margin-bottom:15px;
+        }
+
+        .hero p{
+            font-size:22px;
+            margin-bottom:30px;
+        }
+
+        .hero button{
+            padding:14px 32px;
+            border:none;
+            border-radius:12px;
+            background:#00e676;
+            color:black;
+            font-weight:700;
+            cursor:pointer;
+        }
+
+        /* PRODUCTS */
+
+        .container{
+            width:90%;
+            max-width:1300px;
+            margin:auto;
+            padding:70px 0;
+        }
+
+        .section-title{
+            text-align:center;
+            margin-bottom:50px;
+            font-size:42px;
+        }
+
+        .product-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+            gap:30px;
+        }
+
+        .product-card{
+            background:white;
+            border-radius:20px;
+            overflow:hidden;
+            box-shadow:0 8px 25px rgba(0,0,0,0.08);
+            transition:0.4s;
+            position:relative;
+        }
+
+        .product-card:hover{
+            transform:translateY(-10px);
+        }
+
+        .product-card img{
+            width:100%;
+            height:280px;
+            object-fit:cover;
+        }
+
+        .product-info{
+            padding:20px;
+        }
+
+        .price{
+            color:#00b248;
+            font-size:20px;
+            font-weight:700;
+            margin-top:10px;
+        }
+
+        .stars{
+            color:gold;
+            margin-top:10px;
+        }
+
+        .buy-btn{
+            width:100%;
+            border:none;
+            padding:13px;
+            border-radius:12px;
+            background:#111;
+            color:white;
+            cursor:pointer;
+            margin-top:15px;
+        }
+
+        .tag{
+            position:absolute;
+            top:15px;
+            left:15px;
+
+            background:#00e676;
+            padding:6px 12px;
+            border-radius:30px;
+
+            font-size:12px;
+            font-weight:bold;
+        }
+
+        /* ABOUT */
+
+        .about-section{
+            padding:100px 8%;
+            background:white;
+        }
+
+        .about-container{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:50px;
+            flex-wrap:wrap;
+        }
+
+        .about-text{
+            flex:1;
+        }
+
+        .about-text h2{
+            font-size:48px;
+            margin-bottom:20px;
+        }
+
+        .about-text p{
+            margin-bottom:20px;
+            line-height:1.8;
+        }
+
+        .about-text button{
+            padding:14px 28px;
+            border:none;
+            border-radius:12px;
+            background:#00c853;
+            color:white;
+            cursor:pointer;
+        }
+
+        .about-image{
+            flex:1;
+            text-align:center;
+        }
+
+        .about-image img{
+            width:100%;
+            max-width:500px;
+            border-radius:25px;
+            box-shadow:0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* CONTACT */
+
+        .contact-section{
+            padding:100px 8%;
+            background:#111;
+            color:white;
+            text-align:center;
+        }
+
+        .contact-section h2{
+            font-size:45px;
+            margin-bottom:50px;
+        }
+
+        .contact-container{
+            display:grid;
+            grid-template-columns:
+            repeat(auto-fit,minmax(250px,1fr));
+            gap:30px;
+        }
+
+        .contact-box{
+            background:rgba(255,255,255,0.05);
+            padding:40px 25px;
+            border-radius:20px;
+            transition:0.3s;
+        }
+
+        .contact-box:hover{
+            transform:translateY(-10px);
+        }
+
+        .contact-box i{
+            font-size:40px;
+            margin-bottom:20px;
+            color:#00e676;
+        }
+
+        /* CART */
+
+        .cart-sidebar{
+            position:fixed;
+            top:0;
+            right:-420px;
+
+            width:400px;
+            height:100vh;
+
+            background:white;
+            z-index:9999;
+
+            transition:0.4s;
+            padding:25px;
+            overflow-y:auto;
+        }
+
+        .cart-sidebar.active{
+            right:0;
+        }
+
+        .cart-header{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            margin-bottom:25px;
+        }
+
+        .cart-item{
+            display:flex;
+            justify-content:space-between;
+            margin-bottom:18px;
+        }
+
+        .remove-btn{
+            background:crimson;
+            color:white;
+            border:none;
+            padding:7px 10px;
+            border-radius:8px;
+            cursor:pointer;
+        }
+
+        .checkout-btn{
+            width:100%;
+            margin-top:25px;
+            padding:15px;
+
+            border:none;
+            border-radius:12px;
+
+            background:#00c853;
+            color:white;
+        }
+
+        /* LOGIN */
+
+        .modal{
+            position:fixed;
+            inset:0;
+            background:rgba(0,0,0,0.6);
+
+            display:none;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .modal-box{
+            background:white;
+            width:350px;
+            padding:35px;
+            border-radius:18px;
+        }
+
+        .modal-box input{
+            width:100%;
+            padding:12px;
+            margin-bottom:18px;
+        }
+
+        .modal-box button{
+            width:100%;
+            padding:13px;
+            background:#111;
+            color:white;
+            border:none;
+        }
+
+        /* FOOTER */
+
+        footer{
+            background:#111;
+            color:white;
+            text-align:center;
+            padding:30px;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width:900px){
+
+            .hero h1{
+                font-size:45px;
+            }
+
+            nav{
+                gap:12px;
+            }
+
+        }
+
+        @media(max-width:700px){
+
+            header{
+                flex-direction:column;
+                gap:15px;
+            }
+
+            nav{
+                flex-wrap:wrap;
+                justify-content:center;
+            }
+
+            .hero h1{
+                font-size:36px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <header>
+
+        <div class="logo">SmashZone</div>
+
+        <nav>
+
+            <a href="#">Home</a>
+
+            <div class="dropdown">
+
+                <button class="dropbtn">
+                    Pages
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+
+                <div class="dropdown-content">
+
+                    <a href="#products">Products</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+
+                </div>
+
+            </div>
+
+            <!-- SEARCH -->
+
+            <div class="search-box">
+
+                <input type="text"
+                    placeholder="Search racket..."
+                    id="searchInput">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+            </div>
+
+            <!-- DARK MODE -->
+
+            <button class="nav-btn"
+                onclick="toggleDarkMode()">
+
+                <i class="fa-solid fa-moon"></i>
+
+            </button>
+
+            <!-- ADMIN -->
+
+            <button class="nav-btn"
+                onclick="openLogin()">
+
+                Admin
+
+            </button>
+
+            <!-- CART -->
+
+            <div class="cart-icon"
+                onclick="toggleCart()">
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                <span class="cart-count"
+                    id="cart-count">0</span>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>Find Your Perfect Smash</h1>
+
+            <p>
+                Premium badminton rackets built for
+                power, speed and control.
+            </p>
+
+            <button onclick="document.getElementById('products').scrollIntoView()">
+                Shop Now
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- PRODUCTS -->
+
+    <main class="container"
+        id="products">
+
+        <h2 class="section-title">
+            Featured Rackets
+        </h2>
+
+        <div class="product-grid">
+
+            <!-- PRODUCT -->
+
+            <div class="product-card">
+
+                <span class="tag">
+                    BEST SELLER
+                </span>
+
+                <img src="images/lining-bladex.jpg">
+
+                <div class="product-info">
+
+                    <h3>Li-NING Bladex</h3>
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <p class="price">
+                        RM 320
+                    </p>
+
+                    <button class="buy-btn"
+                        onclick="addToCart('Li-NING Bladex',320)">
+
+                        Add to Cart
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- PRODUCT -->
+
+            <div class="product-card">
+
+                <span class="tag">
+                    NEW
+                </span>
+
+                <img src="images/victor-thruster.jpg">
+
+                <div class="product-info">
+
+                    <h3>VICTOR Thruster</h3>
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <p class="price">
+                        RM 350
+                    </p>
+
+                    <button class="buy-btn"
+                        onclick="addToCart('VICTOR Thruster',350)">
+
+                        Add to Cart
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- ABOUT -->
+
+    <section class="about-section"
+        id="about">
+
+        <div class="about-container">
+
+            <div class="about-text">
+
+                <h2>About SmashZone</h2>
+
+                <p>
+                    SmashZone is a premium badminton
+                    store built for players who want
+                    the best performance on court.
+                </p>
+
+                <p>
+                    We provide professional badminton
+                    rackets and equipment trusted by
+                    competitive and casual players.
+                </p>
+
+                <button onclick="document.getElementById('contact').scrollIntoView()">
+                    Contact Us
+                </button>
+
+            </div>
+
+            <div class="about-image">
+
+                <img src="images/about-badminton.jpg">
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CONTACT -->
+
+    <section class="contact-section"
+        id="contact">
+
+        <h2>Contact SmashZone</h2>
+
+        <div class="contact-container">
+
+            <div class="contact-box">
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                <h3>Location</h3>
+
+                <p>Bukit Mertajam, Penang</p>
+
+            </div>
+
+            <div class="contact-box">
+
+                <i class="fa-solid fa-phone"></i>
+
+                <h3>Phone</h3>
+
+                <p>+60 12-345 6789</p>
+
+            </div>
+
+            <div class="contact-box">
+
+                <i class="fa-solid fa-envelope"></i>
+
+                <h3>Email</h3>
+
+                <p>support@smashzone.com</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CART -->
+
+    <div class="cart-sidebar"
+        id="cartSidebar">
+
+        <div class="cart-header">
+
+            <h2>Your Cart</h2>
+
+            <i class="fa-solid fa-xmark"
+                style="cursor:pointer;font-size:25px"
+                onclick="toggleCart()"></i>
+
+        </div>
+
+        <div id="cart-items"></div>
+
+        <h3 style="margin-top:20px">
+
+            Total: RM
+            <span id="total">0</span>
+
+        </h3>
+
+        <button class="checkout-btn"
+            onclick="checkout()">
+
+            Proceed to Checkout
+
+        </button>
+
+    </div>
+
+    <!-- LOGIN -->
+
+    <div class="modal"
+        id="loginModal">
+
+        <div class="modal-box">
+
+            <h2>Admin Login</h2>
+
+            <input type="text"
+                placeholder="Username"
+                id="username">
+
+            <input type="password"
+                placeholder="Password"
+                id="password">
+
+            <button onclick="login()">
+                Login
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 SmashZone Badminton Store.
+            All Rights Reserved.
+        </p>
+
+    </footer>
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        // DARK MODE
+
+        function toggleDarkMode(){
+
+            document.body.classList.toggle("dark");
+
+            if(document.body.classList.contains("dark")){
+
+                document.body.style.background="#111";
+                document.body.style.color="white";
+
+            }
+            else{
+
+                document.body.style.background="#f4f7fb";
+                document.body.style.color="#222";
+
+            }
+
+        }
+
+        // CART
+
+        let cart=
+        JSON.parse(localStorage.getItem("cart")) || [];
+
+        updateCart();
+
+        function addToCart(product,price){
+
+            cart.push({product,price});
+
+            localStorage.setItem(
+                "cart",
+                JSON.stringify(cart)
+            );
+
+            updateCart();
+
+            alert(product + " added to cart!");
+
+        }
+
+        function updateCart(){
+
+            const cartItems=
+            document.getElementById("cart-items");
+
+            const totalText=
+            document.getElementById("total");
+
+            const cartCount=
+            document.getElementById("cart-count");
+
+            cartItems.innerHTML="";
+
+            let total=0;
+
+            cart.forEach((item,index)=>{
+
+                total += item.price;
+
+                cartItems.innerHTML += `
+
+                    <div class="cart-item">
+
+                        <div>
+
+                            <h4>${item.product}</h4>
+
+                            <p>RM ${item.price}</p>
+
+                        </div>
+
+                        <button class="remove-btn"
+                            onclick="removeItem(${index})">
+
+                            Remove
+
+                        </button>
+
+                    </div>
+
+                `;
+
+            });
+
+            totalText.innerText=total;
+            cartCount.innerText=cart.length;
+
+        }
+
+        function removeItem(index){
+
+            cart.splice(index,1);
+
+            localStorage.setItem(
+                "cart",
+                JSON.stringify(cart)
+            );
+
+            updateCart();
+
+        }
+
+        function toggleCart(){
+
+            document.getElementById("cartSidebar")
+            .classList.toggle("active");
+
+        }
+
+        // CHECKOUT
+
+        function checkout(){
+
+            if(cart.length===0){
+
+                alert("Your cart is empty.");
+                return;
+
+            }
+
+            alert(
+                "Checkout successful! Thank you for shopping at SmashZone."
+            );
+
+            cart=[];
+
+            localStorage.removeItem("cart");
+
+            updateCart();
+
+        }
+
+        // LOGIN
+
+        function openLogin(){
+
+            document.getElementById("loginModal")
+            .style.display="flex";
+
+        }
+
+        function login(){
+
+            const username=
+            document.getElementById("username").value;
+
+            const password=
+            document.getElementById("password").value;
+
+            if(username==="admin"
+            && password==="1234"){
+
+                alert("Admin Login Successful!");
+
+                document.getElementById("loginModal")
+                .style.display="none";
+
+            }
+            else{
+
+                alert("Wrong username or password.");
+
+            }
+
+        }
+
+        // CLOSE MODAL
+
+        window.onclick=function(event){
+
+            const modal=
+            document.getElementById("loginModal");
+
+            if(event.target===modal){
+
+                modal.style.display="none";
+
+            }
+
+        }
+
+        // SEARCH
+
+        document.getElementById("searchInput")
+        .addEventListener("keyup",function(){
+
+            const value=
+            this.value.toLowerCase();
+
+            const products=
+            document.querySelectorAll(".product-card");
+
+            products.forEach(product=>{
+
+                const text=
+                product.innerText.toLowerCase();
+
+                if(text.includes(value)){
+
+                    product.style.display="block";
+
+                }
+                else{
+
+                    product.style.display="none";
+
+                }
+
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>
