@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SmashZone | Premium Badminton Store</title>
 
     <!-- FONT AWESOME -->
     <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
     <!-- GOOGLE FONT -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+        rel="stylesheet"/>
 
     <style>
 
@@ -20,7 +19,7 @@
             margin:0;
             padding:0;
             box-sizing:border-box;
-            font-family:"Poppins", sans-serif;
+            font-family:"Poppins",sans-serif;
         }
 
         html{
@@ -30,6 +29,12 @@
         body{
             background:#f4f7fb;
             color:#222;
+            transition:0.3s;
+        }
+
+        body.dark{
+            background:#111;
+            color:white;
         }
 
         /* NAVBAR */
@@ -44,8 +49,8 @@
             align-items:center;
 
             padding:18px 7%;
-            background:rgba(15,15,15,0.95);
 
+            background:rgba(15,15,15,0.95);
             backdrop-filter:blur(10px);
         }
 
@@ -58,7 +63,8 @@
         nav{
             display:flex;
             align-items:center;
-            gap:22px;
+            gap:18px;
+            flex-wrap:wrap;
         }
 
         nav a{
@@ -72,12 +78,38 @@
         }
 
         .nav-btn{
-            background:#00c853;
             padding:10px 16px;
             border:none;
             border-radius:10px;
-            color:white;
             cursor:pointer;
+            background:#00c853;
+            color:white;
+            transition:0.3s;
+        }
+
+        .nav-btn:hover{
+            transform:translateY(-2px);
+        }
+
+        /* SEARCH */
+
+        .search-box{
+            position:relative;
+        }
+
+        .search-box input{
+            width:220px;
+            padding:10px 40px 10px 14px;
+            border:none;
+            border-radius:30px;
+            outline:none;
+        }
+
+        .search-box i{
+            position:absolute;
+            right:14px;
+            top:11px;
+            color:#555;
         }
 
         /* DROPDOWN */
@@ -87,7 +119,7 @@
         }
 
         .dropbtn{
-            background:transparent;
+            background:none;
             border:none;
             color:white;
             cursor:pointer;
@@ -95,7 +127,6 @@
         }
 
         .dropdown-content{
-
             position:absolute;
             top:35px;
 
@@ -117,10 +148,8 @@
         }
 
         .dropdown-content a{
-
             display:block;
             padding:14px 18px;
-
             color:#222;
             text-decoration:none;
         }
@@ -130,32 +159,9 @@
         }
 
         .dropdown:hover .dropdown-content{
-
             opacity:1;
             visibility:visible;
-
             transform:translateY(0);
-        }
-
-        /* SEARCH */
-
-        .search-box{
-            position:relative;
-        }
-
-        .search-box input{
-            padding:10px 40px 10px 14px;
-            border-radius:30px;
-            border:none;
-            outline:none;
-            width:220px;
-        }
-
-        .search-box i{
-            position:absolute;
-            right:15px;
-            top:11px;
-            color:#555;
         }
 
         /* CART */
@@ -175,12 +181,14 @@
             width:20px;
             height:20px;
 
-            background:red;
             border-radius:50%;
 
             display:flex;
-            align-items:center;
             justify-content:center;
+            align-items:center;
+
+            background:red;
+            color:white;
 
             font-size:12px;
         }
@@ -188,13 +196,12 @@
         /* HERO */
 
         .hero{
-
             min-height:90vh;
 
             background:
-            linear-gradient(rgba(0,0,0,0.55),
-            rgba(0,0,0,0.55)),
-            url("images/lee-zii-jia-smash.jpg");
+            linear-gradient(rgba(0,0,0,0.6),
+            rgba(0,0,0,0.6)),
+            url("https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?q=80&w=1600&auto=format&fit=crop");
 
             background-size:cover;
             background-position:center;
@@ -204,30 +211,16 @@
             align-items:center;
 
             text-align:center;
-
-            animation:zoomHero 12s infinite alternate ease-in-out;
-        }
-
-        @keyframes zoomHero{
-
-            from{
-                background-size:100%;
-            }
-
-            to{
-                background-size:110%;
-            }
-
+            color:white;
         }
 
         .hero-content{
-            color:white;
             padding:20px;
         }
 
         .hero h1{
-            font-size:70px;
-            margin-bottom:15px;
+            font-size:65px;
+            margin-bottom:20px;
         }
 
         .hero p{
@@ -236,11 +229,13 @@
         }
 
         .hero button{
-            padding:14px 32px;
+            padding:14px 30px;
             border:none;
             border-radius:12px;
+
             background:#00e676;
             color:black;
+
             font-weight:700;
             cursor:pointer;
         }
@@ -256,8 +251,8 @@
 
         .section-title{
             text-align:center;
-            margin-bottom:50px;
             font-size:42px;
+            margin-bottom:50px;
         }
 
         .product-grid{
@@ -270,8 +265,10 @@
             background:white;
             border-radius:20px;
             overflow:hidden;
+
             box-shadow:0 8px 25px rgba(0,0,0,0.08);
-            transition:0.4s;
+
+            transition:0.3s;
             position:relative;
         }
 
@@ -285,44 +282,52 @@
             object-fit:cover;
         }
 
-        .product-info{
-            padding:20px;
-        }
-
-        .price{
-            color:#00b248;
-            font-size:20px;
-            font-weight:700;
-            margin-top:10px;
-        }
-
-        .stars{
-            color:gold;
-            margin-top:10px;
-        }
-
-        .buy-btn{
-            width:100%;
-            border:none;
-            padding:13px;
-            border-radius:12px;
-            background:#111;
-            color:white;
-            cursor:pointer;
-            margin-top:15px;
-        }
-
         .tag{
             position:absolute;
             top:15px;
             left:15px;
 
             background:#00e676;
+
             padding:6px 12px;
             border-radius:30px;
 
             font-size:12px;
             font-weight:bold;
+        }
+
+        .product-info{
+            padding:20px;
+        }
+
+        .stars{
+            color:gold;
+            margin:10px 0;
+        }
+
+        .price{
+            color:#00b248;
+            font-size:22px;
+            font-weight:700;
+        }
+
+        .buy-btn{
+            width:100%;
+            margin-top:15px;
+
+            padding:13px;
+
+            border:none;
+            border-radius:12px;
+
+            background:#111;
+            color:white;
+
+            cursor:pointer;
+        }
+
+        .buy-btn:hover{
+            background:#00c853;
         }
 
         /* ABOUT */
@@ -335,7 +340,6 @@
         .about-container{
             display:flex;
             align-items:center;
-            justify-content:space-between;
             gap:50px;
             flex-wrap:wrap;
         }
@@ -350,16 +354,18 @@
         }
 
         .about-text p{
-            margin-bottom:20px;
             line-height:1.8;
+            margin-bottom:20px;
         }
 
         .about-text button{
             padding:14px 28px;
             border:none;
             border-radius:12px;
+
             background:#00c853;
             color:white;
+
             cursor:pointer;
         }
 
@@ -371,7 +377,9 @@
         .about-image img{
             width:100%;
             max-width:500px;
-            border-radius:25px;
+
+            border-radius:20px;
+
             box-shadow:0 10px 30px rgba(0,0,0,0.2);
         }
 
@@ -391,15 +399,16 @@
 
         .contact-container{
             display:grid;
-            grid-template-columns:
-            repeat(auto-fit,minmax(250px,1fr));
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
             gap:30px;
         }
 
         .contact-box{
             background:rgba(255,255,255,0.05);
+
             padding:40px 25px;
             border-radius:20px;
+
             transition:0.3s;
         }
 
@@ -413,7 +422,7 @@
             color:#00e676;
         }
 
-        /* CART */
+        /* CART SIDEBAR */
 
         .cart-sidebar{
             position:fixed;
@@ -424,10 +433,13 @@
             height:100vh;
 
             background:white;
+
+            padding:25px;
+
             z-index:9999;
 
             transition:0.4s;
-            padding:25px;
+
             overflow-y:auto;
         }
 
@@ -445,21 +457,27 @@
         .cart-item{
             display:flex;
             justify-content:space-between;
-            margin-bottom:18px;
+            align-items:center;
+
+            margin-bottom:20px;
         }
 
         .remove-btn{
             background:crimson;
             color:white;
+
             border:none;
-            padding:7px 10px;
             border-radius:8px;
+
+            padding:7px 10px;
+
             cursor:pointer;
         }
 
         .checkout-btn{
             width:100%;
             margin-top:25px;
+
             padding:15px;
 
             border:none;
@@ -467,39 +485,65 @@
 
             background:#00c853;
             color:white;
+
+            cursor:pointer;
         }
 
-        /* LOGIN */
+        /* LOGIN MODAL */
 
         .modal{
             position:fixed;
             inset:0;
+
             background:rgba(0,0,0,0.6);
 
             display:none;
             justify-content:center;
             align-items:center;
+
+            z-index:99999;
         }
 
         .modal-box{
+            width:360px;
+
             background:white;
-            width:350px;
+
             padding:35px;
             border-radius:18px;
+
+            text-align:center;
+        }
+
+        .modal-box h2{
+            margin-bottom:25px;
         }
 
         .modal-box input{
             width:100%;
             padding:12px;
             margin-bottom:18px;
+
+            border:1px solid #ccc;
+            border-radius:10px;
         }
 
         .modal-box button{
             width:100%;
             padding:13px;
+
+            border:none;
+            border-radius:10px;
+
             background:#111;
             color:white;
-            border:none;
+
+            cursor:pointer;
+        }
+
+        .close-modal{
+            margin-top:15px;
+            background:crimson !important;
         }
 
         /* FOOTER */
@@ -519,10 +563,6 @@
                 font-size:45px;
             }
 
-            nav{
-                gap:12px;
-            }
-
         }
 
         @media(max-width:700px){
@@ -532,13 +572,12 @@
                 gap:15px;
             }
 
-            nav{
-                flex-wrap:wrap;
-                justify-content:center;
-            }
-
             .hero h1{
                 font-size:36px;
+            }
+
+            .cart-sidebar{
+                width:100%;
             }
 
         }
@@ -597,12 +636,13 @@
 
             </button>
 
-            <!-- ADMIN -->
+            <!-- ADMIN LOGIN -->
 
             <button class="nav-btn"
                 onclick="openLogin()">
 
-                Admin
+                <i class="fa-solid fa-user-lock"></i>
+                Admin Login
 
             </button>
 
@@ -635,7 +675,7 @@
                 power, speed and control.
             </p>
 
-            <button onclick="document.getElementById('products').scrollIntoView()">
+            <button onclick="scrollToProducts()">
                 Shop Now
             </button>
 
@@ -643,86 +683,207 @@
 
     </section>
 
-    <!-- PRODUCTS -->
+<!-- PRODUCTS -->
 
-    <main class="container"
-        id="products">
+<main class="container" id="products">
 
-        <h2 class="section-title">
-            Featured Rackets
-        </h2>
+    <h2 class="section-title">
+        Featured Rackets
+    </h2>
 
-        <div class="product-grid">
+    <!-- HORIZONTAL PRODUCT SCROLL -->
 
-            <!-- PRODUCT -->
+    <div class="product-slider">
 
-            <div class="product-card">
+        <!-- PRODUCT 1 -->
 
-                <span class="tag">
-                    BEST SELLER
-                </span>
+        <div class="product-card">
 
-                <img src="images/lining-bladex.jpg">
+            <span class="tag">BEST SELLER</span>
 
-                <div class="product-info">
+            <img src="https://images.unsplash.com/photo-1613918431703-aa508a2f6b5c?q=80&w=1000&auto=format&fit=crop"
+                alt="LI-NING Bladex">
 
-                    <h3>Li-NING Bladex</h3>
+            <div class="product-info">
 
-                    <div class="stars">
-                        ★★★★★
-                    </div>
+                <h3>LI-NING Bladex</h3>
 
-                    <p class="price">
-                        RM 320
-                    </p>
+                <div class="stars">★★★★★</div>
 
-                    <button class="buy-btn"
-                        onclick="addToCart('Li-NING Bladex',320)">
+                <p class="description">
+                    Lightweight speed racket designed
+                    for powerful attacks and fast drives.
+                </p>
 
-                        Add to Cart
+                <p class="price">RM 320</p>
 
-                    </button>
-
-                </div>
-
-            </div>
-
-            <!-- PRODUCT -->
-
-            <div class="product-card">
-
-                <span class="tag">
-                    NEW
-                </span>
-
-                <img src="images/victor-thruster.jpg">
-
-                <div class="product-info">
-
-                    <h3>VICTOR Thruster</h3>
-
-                    <div class="stars">
-                        ★★★★★
-                    </div>
-
-                    <p class="price">
-                        RM 350
-                    </p>
-
-                    <button class="buy-btn"
-                        onclick="addToCart('VICTOR Thruster',350)">
-
-                        Add to Cart
-
-                    </button>
-
-                </div>
+                <button class="buy-btn"
+                    onclick="addToCart('LI-NING Bladex',320)">
+                    Add to Cart
+                </button>
 
             </div>
 
         </div>
 
-    </main>
+        <!-- PRODUCT 2 -->
+
+        <div class="product-card">
+
+            <span class="tag">NEW</span>
+
+            <img src="https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?q=80&w=1000&auto=format&fit=crop"
+                alt="VICTOR Thruster">
+
+            <div class="product-info">
+
+                <h3>VICTOR Thruster</h3>
+
+                <div class="stars">★★★★★</div>
+
+                <p class="description">
+                    Head-heavy racket built for explosive
+                    smashes and aggressive gameplay.
+                </p>
+
+                <p class="price">RM 350</p>
+
+                <button class="buy-btn"
+                    onclick="addToCart('VICTOR Thruster',350)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- PRODUCT 3 -->
+
+        <div class="product-card">
+
+            <span class="tag">HOT</span>
+
+            <img src="https://images.unsplash.com/photo-1613918431702-29c6f4030f04?q=80&w=1000&auto=format&fit=crop"
+                alt="YONEX Astrox">
+
+            <div class="product-info">
+
+                <h3>YONEX Astrox</h3>
+
+                <div class="stars">★★★★★</div>
+
+                <p class="description">
+                    Professional balance racket trusted
+                    by advanced badminton players.
+                </p>
+
+                <p class="price">RM 420</p>
+
+                <button class="buy-btn"
+                    onclick="addToCart('YONEX Astrox',420)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- PRODUCT 4 -->
+
+        <div class="product-card">
+
+            <span class="tag">POPULAR</span>
+
+            <img src="https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?q=80&w=1000&auto=format&fit=crop"
+                alt="Bonny BLUE BIRD BB227">
+
+            <div class="product-info">
+
+                <h3>Bonny BLUE BIRD BB227</h3>
+
+                <div class="stars">★★★★☆</div>
+
+                <p class="description">
+                    Comfortable and affordable racket
+                    suitable for beginner players.
+                </p>
+
+                <p class="price">RM 210</p>
+
+                <button class="buy-btn"
+                    onclick="addToCart('Bonny BLUE BIRD BB227',210)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- PRODUCT 5 -->
+
+        <div class="product-card">
+
+            <span class="tag">POWER</span>
+
+            <img src="https://images.unsplash.com/photo-1613918431692-08d44f5db1f6?q=80&w=1000&auto=format&fit=crop"
+                alt="KUMPOO PC Smash">
+
+            <div class="product-info">
+
+                <h3>KUMPOO PC Smash</h3>
+
+                <div class="stars">★★★★★</div>
+
+                <p class="description">
+                    High-tension racket optimized for
+                    strong attacking performance.
+                </p>
+
+                <p class="price">RM 280</p>
+
+                <button class="buy-btn"
+                    onclick="addToCart('KUMPOO PC Smash',280)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- PRODUCT 6 -->
+
+        <div class="product-card">
+
+            <span class="tag">LIMITED</span>
+
+            <img src="https://images.unsplash.com/photo-1613918431702-d3b2a644d5ec?q=80&w=1000&auto=format&fit=crop"
+                alt="RSL M15">
+
+            <div class="product-info">
+
+                <h3>RSL M15</h3>
+
+                <div class="stars">★★★★☆</div>
+
+                <p class="description">
+                    Smooth handling racket offering
+                    speed, comfort and control.
+                </p>
+
+                <p class="price">RM 260</p>
+
+                <button class="buy-btn"
+                    onclick="addToCart('RSL M15',260)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
 
     <!-- ABOUT -->
 
@@ -747,7 +908,7 @@
                     competitive and casual players.
                 </p>
 
-                <button onclick="document.getElementById('contact').scrollIntoView()">
+                <button onclick="scrollToContact()">
                     Contact Us
                 </button>
 
@@ -755,7 +916,8 @@
 
             <div class="about-image">
 
-                <img src="images/about-badminton.jpg">
+                <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=1200&auto=format&fit=crop"
+                    alt="Badminton">
 
             </div>
 
@@ -806,7 +968,7 @@
 
     </section>
 
-    <!-- CART -->
+    <!-- CART SIDEBAR -->
 
     <div class="cart-sidebar"
         id="cartSidebar">
@@ -824,10 +986,8 @@
         <div id="cart-items"></div>
 
         <h3 style="margin-top:20px">
-
             Total: RM
             <span id="total">0</span>
-
         </h3>
 
         <button class="checkout-btn"
@@ -839,7 +999,7 @@
 
     </div>
 
-    <!-- LOGIN -->
+    <!-- ADMIN LOGIN MODAL -->
 
     <div class="modal"
         id="loginModal">
@@ -849,15 +1009,22 @@
             <h2>Admin Login</h2>
 
             <input type="text"
-                placeholder="Username"
-                id="username">
+                id="username"
+                placeholder="Enter Username">
 
             <input type="password"
-                placeholder="Password"
-                id="password">
+                id="password"
+                placeholder="Enter Password">
 
             <button onclick="login()">
                 Login
+            </button>
+
+            <button class="close-modal"
+                onclick="closeLogin()">
+
+                Close
+
             </button>
 
         </div>
@@ -885,31 +1052,41 @@
 
             document.body.classList.toggle("dark");
 
-            if(document.body.classList.contains("dark")){
+        }
 
-                document.body.style.background="#111";
-                document.body.style.color="white";
+        // SCROLL FUNCTIONS
 
-            }
-            else{
+        function scrollToProducts(){
 
-                document.body.style.background="#f4f7fb";
-                document.body.style.color="#222";
+            document.getElementById("products")
+            .scrollIntoView({
+                behavior:"smooth"
+            });
 
-            }
+        }
+
+        function scrollToContact(){
+
+            document.getElementById("contact")
+            .scrollIntoView({
+                behavior:"smooth"
+            });
 
         }
 
         // CART
 
-        let cart=
+        let cart =
         JSON.parse(localStorage.getItem("cart")) || [];
 
         updateCart();
 
         function addToCart(product,price){
 
-            cart.push({product,price});
+            cart.push({
+                product,
+                price
+            });
 
             localStorage.setItem(
                 "cart",
@@ -924,18 +1101,18 @@
 
         function updateCart(){
 
-            const cartItems=
+            const cartItems =
             document.getElementById("cart-items");
 
-            const totalText=
+            const totalText =
             document.getElementById("total");
 
-            const cartCount=
+            const cartCount =
             document.getElementById("cart-count");
 
-            cartItems.innerHTML="";
+            cartItems.innerHTML = "";
 
-            let total=0;
+            let total = 0;
 
             cart.forEach((item,index)=>{
 
@@ -966,8 +1143,8 @@
 
             });
 
-            totalText.innerText=total;
-            cartCount.innerText=cart.length;
+            totalText.innerText = total;
+            cartCount.innerText = cart.length;
 
         }
 
@@ -995,7 +1172,7 @@
 
         function checkout(){
 
-            if(cart.length===0){
+            if(cart.length === 0){
 
                 alert("Your cart is empty.");
                 return;
@@ -1006,7 +1183,7 @@
                 "Checkout successful! Thank you for shopping at SmashZone."
             );
 
-            cart=[];
+            cart = [];
 
             localStorage.removeItem("cart");
 
@@ -1014,30 +1191,39 @@
 
         }
 
-        // LOGIN
+        // LOGIN SYSTEM
 
         function openLogin(){
 
             document.getElementById("loginModal")
-            .style.display="flex";
+            .style.display = "flex";
+
+        }
+
+        function closeLogin(){
+
+            document.getElementById("loginModal")
+            .style.display = "none";
 
         }
 
         function login(){
 
-            const username=
+            const username =
             document.getElementById("username").value;
 
-            const password=
+            const password =
             document.getElementById("password").value;
 
-            if(username==="admin"
-            && password==="1234"){
+            if(
+                username === "admin"
+                &&
+                password === "1234"
+            ){
 
                 alert("Admin Login Successful!");
 
-                document.getElementById("loginModal")
-                .style.display="none";
+                closeLogin();
 
             }
             else{
@@ -1048,45 +1234,45 @@
 
         }
 
-        // CLOSE MODAL
+        // CLOSE MODAL WHEN CLICK OUTSIDE
 
-        window.onclick=function(event){
+        window.onclick = function(event){
 
-            const modal=
+            const modal =
             document.getElementById("loginModal");
 
-            if(event.target===modal){
+            if(event.target === modal){
 
-                modal.style.display="none";
+                closeLogin();
 
             }
 
         }
 
-        // SEARCH
+        // SEARCH PRODUCT
 
         document.getElementById("searchInput")
         .addEventListener("keyup",function(){
 
-            const value=
+            const value =
             this.value.toLowerCase();
 
-            const products=
+            const products =
             document.querySelectorAll(".product-card");
 
             products.forEach(product=>{
 
-                const text=
+                const text =
                 product.innerText.toLowerCase();
 
                 if(text.includes(value)){
 
-                    product.style.display="block";
+                    product.style.display = "block";
 
                 }
                 else{
 
-                    product.style.display="none";
+                    product.style.display = "none";
 
                 }
 
@@ -1097,5 +1283,4 @@
     </script>
 
 </body>
-
 </html>
